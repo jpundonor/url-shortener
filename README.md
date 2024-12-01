@@ -1,5 +1,28 @@
-# Vue 3 + Vite
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+# Shortener URL
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+This project is a web application that allows users to shorten long URLs using the TinyURL API. It is developed with Vue.js and Tailwind.
+
+This project is deployed on Vercel. You can view it [HERE!](https://url-shortener-three-theta.vercel.app/).
+## Features. 🚀
+
+- **Shorten URLs**: Generate short links from long URLs.
+- **Interactive interface**: Designed to be easy to use.
+- **Integration with TinyURL API**: Uses an API token to authenticate.
+- **Deployment in Vercel**: Configured to be deployed in Vercel with environment variables.
+
+## Technologies 🛠️
+
+- [Vue.js](https://vuejs.org/) - Framework for building the interface.
+- [TinyURL API](https://tinyurl.com/app/dev) - Service used to shorten URLs.
+- [Vercel](https://vercel.com/) - Deployment platform for web applications.
+- [Tailwind](https://tailwindcss.com/) - Used for design and styling of the project.
+## Authors 👨‍💻
+
+- [@jpundonor](https://github.com/jpundonor)
+
+
+## Future enhancements 🛠️
+
+- Add shortened URL history functionality.
+- Implement a backend to handle API token more securely.
