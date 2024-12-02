@@ -54,27 +54,22 @@ export default {
     };
   },
   methods: {
-    async generateShortUrl() {
+    async generateShortUrl(){
       this.shortUrl = "";
       this.errorMessage = "";
 
-      const apiToken = import.meta.env.VITE_API_KEY;
-      const url = "https://api.rebrandly.com/v1/links";
+      const apiUrl = "http://localhost:5000/api/shorten"
 
-      const options = {
-        method: "POST",
-        headers: {
-          accept: "application/json",
-          "Content-Type": "application/json",
-          apikey: apiToken,
-        },
-        body: JSON.stringify({
-          destination: this.url,
-          domain: { fullName: "rebrand.ly" },
-        }),
-      };
       try {
-        const response = await fetch(url, options);
+        const response = await fetch(apiUrl, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            longUrl: this.url,
+          }),
+        });
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
