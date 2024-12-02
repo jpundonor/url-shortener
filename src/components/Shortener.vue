@@ -57,21 +57,29 @@ export default {
     async generateShortUrl() {
       this.shortUrl = "";
       this.errorMessage = "";
-      const apiToken = import.meta.env.VITE_API_TOKEN;
+
+      const apiToken = import.meta.env.VITE_API_KEY;
+      const url = "https://api.rebrandly.com/v1/links";
+
+      const options = {
+        method: "POST",
+        headers: {
+          accept: "application/json",
+          "Content-Type": "application/json",
+          apikey: apiToken,
+        },
+        body: JSON.stringify({
+          destination: this.url,
+          domain: { fullName: "rebrand.ly" },
+        }),
+      };
       try {
-        const response = await fetch("https://api.tinyurl.com/create", {
-          method: "POST",
-          headers: {
-            Authorization: "Bearer " + apiToken,
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ url: this.url }),
-        });
+        const response = await fetch(url, options);
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         const data = await response.json();
-        this.shortUrl = data.data.tiny_url;
+        this.shortUrl = data.shortUrl;
       } catch (error) {
         this.errorMessage = "Error generating short URL. Please try again.";
         console.error("Error: ", error);
