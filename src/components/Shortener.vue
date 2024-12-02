@@ -58,7 +58,7 @@ export default {
       this.shortUrl = "";
       this.errorMessage = "";
 
-      const apiUrl = "https://url-shortener-backend-c7vr.onrender.com/"
+      const apiUrl = "https://url-shortener-backend-c7vr.onrender.com/api/shorten"
 
       try {
         const response = await fetch(apiUrl, {
